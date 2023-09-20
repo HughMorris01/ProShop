@@ -48,7 +48,7 @@ const OrderScreen = () => {
         paypalDispatch({
           type: 'resetOptions',
           value: {
-            'client-id': paypal.clientId,
+            clientId: paypal.clientId,
             currency: 'USD',
           },
         });
@@ -61,6 +61,11 @@ const OrderScreen = () => {
       }
     }
   }, [order, paypal, paypalDispatch, loadingPayPal, errorPayPal]);
+
+  function onApprove() {}
+  function onApproveTest() {}
+  function createOrder() {}
+  function onError() {}
 
   return isLoading ? (
     <Loader />
@@ -154,7 +159,31 @@ const OrderScreen = () => {
                   <Col>${order.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
-              {/*PAY ORDER PLACEHOLDER */}
+              {!order.isPaid && (
+                <ListGroup.Item>
+                  {loadingPay && <Loader />}
+
+                  {isPending ? (
+                    <Loader />
+                  ) : (
+                    <div>
+                      <Button
+                        onClick={onApproveTest}
+                        style={{ marginBottom: '10px' }}
+                      >
+                        Test Pay Order
+                      </Button>
+                      <div>
+                        <PayPalButtons
+                          createOrder={createOrder}
+                          onApprove={onApprove}
+                          onError={onError}
+                        ></PayPalButtons>
+                      </div>
+                    </div>
+                  )}
+                </ListGroup.Item>
+              )}
               {/*MARK AS DELIVERED PLACEHOLDER */}
             </ListGroup>
           </Card>
