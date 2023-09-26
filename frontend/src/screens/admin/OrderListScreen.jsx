@@ -1,6 +1,6 @@
 import { LinkContainer } from 'react-router-bootstrap';
 import { Table, Button } from 'react-bootstrap';
-import { FaTimes, FaCheck, FaSquare, FaShippingFast } from 'react-icons/fa';
+import { FaCheck, FaSquare, FaShippingFast } from 'react-icons/fa';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
 import { useGetOrdersQuery } from '../../slices/ordersApiSlice';
@@ -26,7 +26,7 @@ const OrderListScreen = () => {
               <th>PAID</th>
               <th>DELIVERED</th>
               <th>STATUS</th>
-              <th>DETAILS</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>

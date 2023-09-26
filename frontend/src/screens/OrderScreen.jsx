@@ -70,11 +70,11 @@ const OrderScreen = () => {
     });
   }
 
-  async function onApproveTest() {
-    await payOrder({ orderId, details: { payer: {} } });
-    refetch();
-    toast.success('Payment successful');
-  }
+  // async function onApproveTest() {
+  //   await payOrder({ orderId, details: { payer: {} } });
+  //   refetch();
+  //   toast.success('Payment successful');
+  // }
 
   function createOrder(data, actions) {
     return actions.order
