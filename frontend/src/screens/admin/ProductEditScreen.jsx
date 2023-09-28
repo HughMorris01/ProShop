@@ -127,7 +127,7 @@ const ProductEditScreen = () => {
               <Form.Control
                 type='file'
                 label='Choose image file'
-                placeholder='Enter  url'
+                placeholder='Choose image file'
                 onChange={uploadFileHandler}
               ></Form.Control>
             </Form.Group>
