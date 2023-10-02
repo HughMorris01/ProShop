@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
@@ -67,7 +66,8 @@ const ProductEditScreen = () => {
     if (result.error) {
       toast.error(result.error);
     } else {
-      toast.success('Product update');
+      toast.success('Product updated');
+      refetch();
       navigate('/admin/productlist');
     }
   };
@@ -92,6 +92,7 @@ const ProductEditScreen = () => {
       <FormContainer>
         <h1>Edit Product</h1>
         {loadingUpdate && <Loader />}
+        {loadingUpload && <Loader />}
         {isLoading ? (
           <Loader />
         ) : error ? (
