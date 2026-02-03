@@ -4,124 +4,67 @@
 
 <img src="./frontend/public/images/screens.png">
 
-<!-- toc -->
+ProShop | Full-Stack E-Commerce Platform
+A feature-rich, full-stack e-commerce solution designed with the MERN (MongoDB, Express, React, Node.js) architecture. This platform provides a seamless shopping experience for customers and a comprehensive management suite for administrators.
 
-- [Features](#features)
-- [Usage](#usage)
-  - [Env Variables](#env-variables)
-  - [Install Dependencies (frontend & backend)](#install-dependencies-frontend--backend)
-  - [Run](#run)
-- [Build & Deploy](#build--deploy)
-  - [Seed Database](#seed-database)
-  * [License](#license)
+🚀 Tech Stack
+Frontend: React.js, Redux (State Management), React-Bootstrap (UI Framework)
 
-<!-- tocstop -->
+Backend: Node.js, Express.js
 
-## Features
+Database: MongoDB with Mongoose ODM
 
-- Full featured shopping cart
-- Product reviews and ratings
-- Top products carousel
-- Product pagination
-- Product search feature
-- User profile with orders
-- Admin product management
-- Admin user management
-- Admin Order details page
-- Mark orders as delivered option
-- Checkout process (shipping, payment method, etc)
-- PayPal / credit card integration
-- Database seeder (products & users)
+Authentication: JSON Web Tokens (JWT) & Bcrypt.js
 
-## Usage
+Payments: PayPal SDK Integration
 
-- Create a MongoDB database and obtain your `MongoDB URI` - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
-- Create a PayPal account and obtain your `Client ID` - [PayPal Developer](https://developer.paypal.com/)
+🛠 Core Features
+User Experience
+Product Discovery: Real-time search, category pagination, and a "Top Rated" product carousel.
 
-### Env Variables
+Shopping Cart: Persistent cart functionality with real-time inventory adjustment.
 
-Rename the `example.env` file to `.env` and add the following
+Review System: Verified user ratings and comment sections for every product.
 
-```
-NODE_ENV = development
-PORT = 5000
-MONGO_URI = your mongodb uri
-JWT_SECRET = 'abc123'
-PAYPAL_CLIENT_ID = your paypal client id
-PAGINATION_LIMIT = 8
-```
+Secure Checkout: Integrated multi-step checkout process with PayPal and Credit Card support.
 
-Change the JWT_SECRET and PAGINATION_LIMIT to your preferences
+Administrative Suite
+User Management: Full CRUD capabilities for user profiles and permissions.
 
-### Install Dependencies (frontend & backend)
+Inventory Control: Admin dashboard to add, edit, or remove products and track stock levels.
 
-```
-npm install
-cd frontend
-npm install
-```
+Order Fulfillment: centralized dashboard to track payment status and toggle delivery status.
 
-### Run
+📁 Project Overview
+Environment Configuration
+To run this project locally, create a .env file in the root directory and include the following:
 
-```
+NODE_ENV: Set to development or production.
 
-# Run frontend (:3000) & backend (:5000)
-npm run dev
+MONGO_URI: Your MongoDB connection string.
 
-# Run backend only
-npm run server
-```
+JWT_SECRET: A secure string for token encryption.
 
-## Build & Deploy
+PAYPAL_CLIENT_ID: Your PayPal developer credentials.
 
-```
-# Create frontend prod build
-cd frontend
-npm run build
-```
+⚙️ Installation & Setup
+Clone & Install Dependencies:
 
-### Seed Database
+Bash
+npm install && cd frontend && npm install
+Seed the Database (Optional):
 
-You can use the following commands to seed the database with some sample users and products as well as destroy all data
-
-```
-# Import data
+Bash
+# This will populate the DB with sample products and users
 npm run data:import
+Start the Development Server:
 
-# Destroy data
-npm run data:destroy
-```
+Bash
+# Runs both backend and frontend concurrently
+npm run dev
+Tips for "Sprucing" this Repo:
+Replace the Sample Data: Since this is based on a popular tutorial, many recruiters will recognize the "Airpods" and "iPhone" sample data. Replacing those with unique products (like "Vintage Cameras" or "Mechanical Keyboards") immediately makes the project look more original.
 
-```
-Sample User Logins
+Use the Screenshot: Since you already have that great collage of the site, you should definitely embed it at the very top of the README under the main title.
 
-admin@email.com (Admin)
-123456
-
-john@email.com (Customer)
-123456
-
-jane@email.com (Customer)
-123456
-```
-
----
-
-## License
-
-The MIT License
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+Clean up the License: Instead of pasting the whole MIT text, you can just say "Distributed under the MIT License. See LICENSE for more information." and keep a separate file called LICENSE.
