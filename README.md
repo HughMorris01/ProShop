@@ -99,7 +99,7 @@ After seeding the database, use these credentials to log in:
 
 **Admin Account:**
 
-- **Email:** admin@example.com
+- **Email:** admin@email.com
 - **Password:** 123456
 
 **User Account:**
