@@ -4,124 +4,127 @@
 
 <img src="./frontend/public/images/screens.png">
 
-<!-- toc -->
+A full-stack eCommerce platform built with the MERN stack (MongoDB, Express, React, Node.js). This project features a complete shopping cart, user reviews, admin product management, PayPal integration, and pagination.
 
-- [Features](#features)
-- [Usage](#usage)
-  - [Env Variables](#env-variables)
-  - [Install Dependencies (frontend & backend)](#install-dependencies-frontend--backend)
-  - [Run](#run)
-- [Build & Deploy](#build--deploy)
-  - [Seed Database](#seed-database)
-  * [License](#license)
+## 🚀 Features
 
-<!-- tocstop -->
+- **Full-featured Shopping Cart:** Add items, adjust quantities, and calculate totals.
+- **Product Reviews:** Registered users can rate and review products.
+- **Admin Dashboard:** Manage products, users, and orders.
+- **PayPal Integration:** Fully functional checkout using PayPal Sandbox.
+- **Search & Pagination:** Efficiently browse large catalogs.
+- **Responsive Design:** Works on mobile, tablet, and desktop (React-Bootstrap).
 
-## Features
+## 🛠 Tech Stack
 
-- Full featured shopping cart
-- Product reviews and ratings
-- Top products carousel
-- Product pagination
-- Product search feature
-- User profile with orders
-- Admin product management
-- Admin user management
-- Admin Order details page
-- Mark orders as delivered option
-- Checkout process (shipping, payment method, etc)
-- PayPal / credit card integration
-- Database seeder (products & users)
-
-## Usage
-
-- Create a MongoDB database and obtain your `MongoDB URI` - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
-- Create a PayPal account and obtain your `Client ID` - [PayPal Developer](https://developer.paypal.com/)
-
-### Env Variables
-
-Rename the `example.env` file to `.env` and add the following
-
-```
-NODE_ENV = development
-PORT = 5000
-MONGO_URI = your mongodb uri
-JWT_SECRET = 'abc123'
-PAYPAL_CLIENT_ID = your paypal client id
-PAGINATION_LIMIT = 8
-```
-
-Change the JWT_SECRET and PAGINATION_LIMIT to your preferences
-
-### Install Dependencies (frontend & backend)
-
-```
-npm install
-cd frontend
-npm install
-```
-
-### Run
-
-```
-
-# Run frontend (:3000) & backend (:5000)
-npm run dev
-
-# Run backend only
-npm run server
-```
-
-## Build & Deploy
-
-```
-# Create frontend prod build
-cd frontend
-npm run build
-```
-
-### Seed Database
-
-You can use the following commands to seed the database with some sample users and products as well as destroy all data
-
-```
-# Import data
-npm run data:import
-
-# Destroy data
-npm run data:destroy
-```
-
-```
-Sample User Logins
-
-admin@email.com (Admin)
-123456
-
-john@email.com (Customer)
-123456
-
-jane@email.com (Customer)
-123456
-```
+- **Frontend:** React, Redux Toolkit, React-Bootstrap, React-Router-Dom
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB (Mongoose)
+- **State Management:** Redux Toolkit (RTK Query)
 
 ---
 
-## License
+## 🏁 Getting Started
 
-The MIT License
+Follow these steps to get a local copy up and running.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+### 1. Prerequisites
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+Ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v16+)
+- [MongoDB](https://www.mongodb.com/) (Local or Atlas URL)
+
+### 2. Installation
+
+Clone the repository and install dependencies for **both** the backend and frontend.
+
+```bash
+# Clone the repo
+git clone [https://github.com/yourusername/proshop.git](https://github.com/yourusername/proshop.git)
+cd proshop
+
+# Install Backend dependencies (Root)
+npm install
+
+# Install Frontend dependencies
+cd frontend
+npm install
+cd ..
+```
+
+### 3. Environment Variables
+
+Create a `.env` file in the root directory. You can use the `example.env` as a reference.
+
+```env
+NODE_ENV=development
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key_123
+PAYPAL_CLIENT_ID=your_paypal_sandbox_id
+PAGINATION_LIMIT=8
+```
+
+- **Note:** If you don't have a PayPal ID, the checkout screen may throw errors. You can get a Sandbox ID from [developer.paypal.com](https://developer.paypal.com).
+
+### 4. Database Seeding (Crucial Step)
+
+The app will load with an empty screen if the database is empty. You must run the seeder script to populate it with sample data (Users and Products).
+
+```bash
+# Run this from the root folder
+npm run data:import
+
+# Expected Output: "Data Imported!"
+```
+
+_To clear the database completely, run `npm run data:destroy`._
+
+### 5. Run the Application
+
+This project uses `concurrently` to run the React frontend (Port 3000) and Node backend (Port 5000) with a single command.
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+---
+
+## 🔑 Default Login Credentials
+
+After seeding the database, use these credentials to log in:
+
+**Admin Account:**
+
+- **Email:** admin@example.com
+- **Password:** 123456
+
+**User Account:**
+
+- **Email:** john@email.com
+- **Password:** 123456
+
+---
+
+## 🐛 Troubleshooting
+
+**"Products list is empty / Spinning Loader"**
+
+- This usually means you skipped Step 4. Stop the server and run `npm run data:import`.
+
+**"PayPal Script Error"**
+
+- Ensure your `.env` file has a valid `PAYPAL_CLIENT_ID`. If you are testing, use a Sandbox client ID, not a generic string.
+
+**"Product already reviewed"**
+
+- The system prevents users from reviewing the same product twice. Create a new user account to test the review feature again.
+
+---
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
