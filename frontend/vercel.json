@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://pro-shop-ecru.com/api/:path*"
+      "destination": "https://proshop-usrw.onrender.com/api/:path*"
     },
     {
       "source": "/uploads/:path*",
-      "destination": "https://pro-shop-ecru.com/uploads/:path*"
+      "destination": "https://proshop-usrw.onrender.com/uploads/:path*"
     }
   ]
 }
